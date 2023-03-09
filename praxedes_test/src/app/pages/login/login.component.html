@@ -1,0 +1,70 @@
+<body>
+	<div class="container">
+
+		<div class="login item">
+			<div class="login-screen" *ngIf="!recuperar">
+				<div class="app-title poppins">
+					<h1>
+						<b>Inicio de sesión</b>
+					</h1>
+				</div>
+				<div class="control-group">
+					<div class="input-wrapper poppins">
+						<input class="login-field input" type="text" placeholder="nombre de usuario"
+							aria-label=".form-control-lg example" [formControl]="username">
+						<img src="assets/img/user-solid.svg" class="input-icon">
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="input-wrapper poppins">
+						<input type="password" class="login-field input" value="" placeholder="contraseña"
+							[formControl]="password" id="login-pass">
+						<img src="assets/img/key-solid.svg" class="input-icon">
+					</div>
+				</div>
+				<button class="btn btn-primary btn-large btn-block poppins" (click)="login()">Iniciar sesión</button>
+				<p class="login-link poppins" (click)="recuperarPassword()">Registrarme.</p>
+			</div>
+			<form action="" [formGroup]="frmRegister" class="login-screen" *ngIf="recuperar">
+				<div class="app-title poppins">
+					<h1>
+						<b>Registrarme</b>
+					</h1>
+				</div>
+				<div class="control-group">
+					<div class="input-wrapper poppins">
+						<input class="login-field" type="text" placeholder="nombre"
+							aria-label=".form-control-lg example" formControlName="name">
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="input-wrapper poppins">
+						<input class="login-field" type="text" placeholder="apellido"
+							aria-label=".form-control-lg example" formControlName="lastName">
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="input-wrapper poppins">
+						<input class="login-field" type="email" placeholder="correo"
+							aria-label=".form-control-lg example" formControlName="email">
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="input-wrapper poppins">
+						<input class="login-field" type="text" placeholder="documento de identidad"
+							aria-label=".form-control-lg example" formControlName="id">
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="input-wrapper poppins">
+						<input type="password" class="login-field" placeholder="contraseña" formControlName="password"
+							id="login-pass">
+					</div>
+				</div>
+
+				<button class="btn btn-primary btn-large btn-block poppin" (click)="registrarUsuario()">Enviar</button>
+				<p class="login-link poppins" (click)="recuperarPassword()">Iniciar Sesión</p>
+			</form>
+		</div>
+	</div>
+</body>
