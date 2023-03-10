@@ -128,3 +128,7 @@ input:focus {
 .input-wrapper img {
     filter: invert(48%) sepia(13%) saturate(457%) hue-rotate(202deg) brightness(93%) contrast(89%);
 }
+
+form div{
+    margin-bottom: 3px;
+}

@@ -13,7 +13,7 @@ export class GeneralService {
 
   constructor(
     private http: HttpClient,
-    private storageService: StorageService
+    private storageService: StorageService,
   ) { }
 
   //#endregion
@@ -44,7 +44,7 @@ export class GeneralService {
     if (method === 'post') {
 
       return this.http
-      .post(url, body, obj)
+        .post(url, body, obj)
     }
 
     if (method === 'get') {

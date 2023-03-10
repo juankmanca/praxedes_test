@@ -13,13 +13,16 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { DialogComponent } from './shared/dialog/dialog.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './pages/home/home.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LoadingComponent,
-    DialogComponent
+    DialogComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,8 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    HttpClientModule
-
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

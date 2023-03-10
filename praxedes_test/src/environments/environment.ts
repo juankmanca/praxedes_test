@@ -8,8 +8,8 @@ export const environment = {
   production: false,
 
   iniciarSesion: 'https://pruebas.midasoft.co:5443/Apis_DLLO/Security/api/SEG',
-  registrarUsuario: 'https://pruebas.midasoft.co:5443/Apis_DLLO/Seleccion/api/SOL/RegistroInicialSolicitante'
-
+  registrarUsuario: 'https://pruebas.midasoft.co:5443/Apis_DLLO/Seleccion/api/SOL/RegistroInicialSolicitante',
+  consultarEpisodios: 'https://rickandmortyapi.com/api/episode'
 };
 
 /*

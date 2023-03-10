@@ -6,7 +6,7 @@ import { LoginService } from '../../services/login/login.service';
 import { UiService } from '../../services/ui/ui.service';
 import { constantes } from '../../helpers/constantes';
 import { Response } from 'src/app/helpers/clases';
-import { IResponse, IUsuario } from '../../helpers/interfaces';
+import { IResponse, IUsuario, IDialogData } from '../../helpers/interfaces';
 import { mensajes } from '../../helpers/mensajes';
 import { optDialog } from '../../helpers/enums';
 
@@ -56,30 +56,26 @@ export class LoginComponent {
     x.subscribe(
       (data: any) => {
         // const token = data.headers.get('xauth');
-        console.log('data >>:', data);
-        
         load.close();
         const resp: IResponse = data.body;
-       
+        this.guardarDatosLocales(resp.token);
+        this.route.navigate(["/home"])
       },
       (data: any) => {
-
         console.log('data err>>:', data);
-        
         load.close();
-        const resp: IResponse = data.error;
-        const obj = Response.transformarObjecto(resp);
+        const obj: IDialogData = {
+          mensaje: "Usuario o Contraseña incorrectos",
+          titulo: "Error al iniciar sesión",
+          opt: optDialog.error
+        }
         this.ui.openDialog(obj);
       }
     )
   }
 
-  private guardarDatosLocales(_idUsuario: string, username: string, token: string, perfil: string, permisos: any[]) {
-    this.storage.set(constantes.userId, _idUsuario);
-    this.storage.set(constantes.username, username);
+  private guardarDatosLocales(token: string) {
     this.storage.set(constantes.token, token);
-    this.storage.set(constantes.perfil, perfil);
-    this.storage.set(constantes.permisos, JSON.stringify(permisos));
   }
 
   public recuperarPassword(): void {
@@ -89,7 +85,7 @@ export class LoginComponent {
   public async registrarUsuario(): Promise<void> {
     console.log('this.frmRegister.valid >>:', this.frmRegister.valid);
     console.log('this.frmRegister.valid >>:', this.frmRegister);
-    
+
     if (!this.frmRegister.valid) return;
     const load = this.ui.loading();
     const body = this.construirBody();
@@ -97,14 +93,14 @@ export class LoginComponent {
     promise.subscribe(
       (data: any) => {
         console.log('data >>:', data);
-        
+
         load.close();
         this.ui.openDialog(Response.transformarObjecto(data));
         if (data.completada) this.recuperar = true;
       },
       (data: any) => {
         console.log('data error >>:', data);
-        
+
         load.close();
         const resp: IResponse = data.error;
         const obj = Response.transformarObjecto(resp);
