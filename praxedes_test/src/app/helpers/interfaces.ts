@@ -13,6 +13,11 @@ export interface IUsuario {
   cia: String
 }
 
+export interface IResponseError {
+  Message: string,
+  StatusCode: number
+}
+
 export interface IDialogData {
   titulo: string,
   mensaje: string,
@@ -43,11 +48,33 @@ export interface IInfo {
 }
 
 export interface IEpisode {
-  air_date: string
+  air_date?: string
   characters: string[],
-  created: string
-  episode: string,
+  created?: string
+  episode?: string,
   id: number,
-  name: string
-  url: string
+  name?: string
+  url?: string
+}
+
+export interface ICharacter {
+  created: string,
+  episode: string[],
+  gender: string,
+  id: number,
+  image: string,
+  location: object,
+  name: string,
+  origin: object,
+  species: string,
+  status: string,
+  type: string,
+  url: string,
+  favorite: boolean
+}
+
+export interface IFavorito {
+  id_caracter: number,
+  observaciones: string,
+  usuario: string
 }

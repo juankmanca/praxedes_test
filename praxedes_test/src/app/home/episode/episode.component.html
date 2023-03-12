@@ -1,0 +1,39 @@
+<div class="div">
+  <div class="header">
+    <h1>Episodio {{episode.id}}: <b>{{episode.name}}</b></h1>
+    <button class="btn btn-primary" (click)="regresar()">
+      <i class="fas fa-chevron-left"></i>
+      Regresar
+    </button>
+  </div>
+  <div class="grid">
+    <div class="col" *ngFor="let personaje of personajes">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <!-- <div mat-card-avatar class="example-header-image"></div> -->
+          <mat-card-title>{{personaje.name}}</mat-card-title>
+          <mat-card-subtitle> <b>Creado: </b> {{personaje.created | date}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="personaje.image">
+        <mat-card-content class="card-content">
+          <div>
+            <b>genero</b>
+            <p>{{personaje.gender}}</p>
+          </div>
+          <div>
+            <b>especie</b>
+            <p>{{personaje.species}}</p>
+          </div>
+          <div>
+            <b>estatus</b>
+            <p>{{personaje.status}}</p>
+          </div>
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <i *ngIf="!personaje.favorite" id="fab" class="far fa-heart text-danger" (click)="seleccionarFavorito(personaje.id)"></i>
+          <i *ngIf="personaje.favorite" class="fas fa-heart text-danger"  (click)="quitarFavorito(personaje.id)"></i>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

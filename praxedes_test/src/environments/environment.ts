@@ -7,9 +7,14 @@ const host = 'localhost:2727'
 export const environment = {
   production: false,
 
+  // Public API
   iniciarSesion: 'https://pruebas.midasoft.co:5443/Apis_DLLO/Security/api/SEG',
   registrarUsuario: 'https://pruebas.midasoft.co:5443/Apis_DLLO/Seleccion/api/SOL/RegistroInicialSolicitante',
-  consultarEpisodios: 'https://rickandmortyapi.com/api/episode'
+  consultarEpisodios: 'https://rickandmortyapi.com/api/episode',
+  consultarPersonajes: 'https://rickandmortyapi.com/api/character',
+
+  // Local API
+  favoritos: 'https://pruebas.midasoft.co:5443/Apis_DLLO/Seleccion/api/favoritos',
 };
 
 /*

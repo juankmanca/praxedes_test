@@ -14,13 +14,9 @@ export class UiService {
   ) { }
 
   openDialog(data: IDialogData): void {
-    const dialogRef = this.dialog.open(DialogComponent, {
+    this.dialog.open(DialogComponent, {
       // width: '250px',
       data,
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 

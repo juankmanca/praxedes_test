@@ -1,0 +1,46 @@
+<body>
+  <div class="container">
+    <div class="login item">
+      <form action="" [formGroup]="frmRegister" class="login-screen">
+        <div class="app-title poppins">
+          <h1>
+            <b>Registrarme</b>
+          </h1>
+        </div>
+        <div class="control-group">
+          <div class="input-wrapper poppins">
+            <input class="login-field" type="text" placeholder="nombre" aria-label=".form-control-lg example"
+              formControlName="name">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="input-wrapper poppins">
+            <input class="login-field" type="text" placeholder="apellido" aria-label=".form-control-lg example"
+              formControlName="lastName">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="input-wrapper poppins">
+            <input class="login-field" type="email" placeholder="correo" aria-label=".form-control-lg example"
+              formControlName="email">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="input-wrapper poppins">
+            <input class="login-field" type="text" placeholder="documento de identidad"
+              aria-label=".form-control-lg example" formControlName="id">
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="input-wrapper poppins">
+            <input type="password" class="login-field" placeholder="contraseña" formControlName="password"
+              id="login-pass">
+          </div>
+        </div>
+        <button class="btn btn-primary btn-large btn-block poppin" id="registrar"
+          (click)="registrarUsuario()">Enviar</button>
+        <a class="login-link poppins" href="auth/login">Iniciar Sesión</a>
+      </form>
+    </div>
+  </div>
+</body>

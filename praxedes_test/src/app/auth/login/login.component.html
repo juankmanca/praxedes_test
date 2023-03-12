@@ -1,0 +1,29 @@
+<body>
+	<div class="container">
+		<div class="login item">
+			<div class="login-screen">
+				<div class="app-title poppins">
+					<h1>
+						<b>Inicio de sesión</b>
+					</h1>
+				</div>
+				<div class="control-group">
+					<div class="input-wrapper poppins">
+						<input class="login-field input" type="text" placeholder="nombre de usuario"
+							aria-label=".form-control-lg example" [formControl]="username">
+						<img src="assets/img/user-solid.svg" class="input-icon">
+					</div>
+				</div>
+				<div class="control-group">
+					<div class="input-wrapper poppins">
+						<input type="password" class="login-field input" value="" placeholder="contraseña"
+							[formControl]="password" id="login-pass">
+						<img src="assets/img/key-solid.svg" class="input-icon">
+					</div>
+				</div>
+				<button class="btn btn-primary btn-large btn-block poppins" (click)="login()">Iniciar sesión</button>
+				<a class="login-link poppins" href="auth/register">Registrarme</a>
+			</div>			
+		</div>
+	</div>
+</body>

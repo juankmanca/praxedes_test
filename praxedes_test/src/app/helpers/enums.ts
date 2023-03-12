@@ -1,7 +1,8 @@
 export enum http {
   post = 'post',
   get = 'get',
-  patch = 'patch'
+  patch = 'patch',
+  delete = 'delete'
 }
 
 export enum optDialog {

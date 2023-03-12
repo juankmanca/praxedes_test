@@ -29,7 +29,7 @@ export class GeneralService {
     let token = '';
     if (withToken) {
       token = await this.storageService.get(constantes.token);
-      objHeader.xAuth = token;
+      objHeader.Authorization = "Bearer " + token;
     }
 
     const headers = new HttpHeaders(objHeader);
@@ -42,21 +42,22 @@ export class GeneralService {
     }
 
     if (method === 'post') {
-
-      return this.http
-        .post(url, body, obj)
+      return this.http.post(url, body, obj)
     }
 
     if (method === 'get') {
-
-      return this.http
-        .get(url, obj)
+      return this.http.get(url, obj)
     }
 
     if (method === 'patch') {
+      return this.http.patch(url, body, obj)
+    }
 
-      return this.http
-        .patch(url, body, obj)
+    if (method === 'delete') {
+      return this.http.delete(url, {
+        headers: objHeader,
+        body: body
+      })
     }
   }
 

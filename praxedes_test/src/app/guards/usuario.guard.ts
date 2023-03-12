@@ -18,7 +18,7 @@ export class UsuarioGuard {
     const tk = localStorage.getItem(constantes.token);
     if(tk) return true;
     window.alert("Por favor inicie sesión para acceder a esta ruta!")
-    this.router.navigate(['/login'])
+    this.router.navigate(['/auth/login'])
     return false
   }
   
